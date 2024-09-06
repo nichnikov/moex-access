@@ -7,9 +7,13 @@ import requests
 import apimoex
 import pandas as pd
 
-
+"MICEX"
+"TQBR"
 request_url = ('https://iss.moex.com/iss/engines/stock/'
-               'markets/shares/boards/TQBR/securities.json')
+               'markets/shares/boards/{}/securities.json'.format("TQBR"))
+'''request_url = ('https://iss.moex.com/iss/engines/stock/'
+               'markets/shares/boards/TQBR/securities.json')'''
+
 arguments = {'securities.columns': ('SECID,'
                                     'REGNUMBER,'
                                     'LOTSIZE,'
