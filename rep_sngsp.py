@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 with requests.Session() as session:
-    data = apimoex.get_board_history(session, 'SBERP')
+    data = apimoex.get_board_history(session, 'SBERP', start="2024-11-01")
     df = pd.DataFrame(data)
     # df.set_index('TRADEDATE', inplace=True)
     
@@ -24,7 +24,7 @@ with requests.Session() as session:
     print(df.tail(), '\n')
     df.info()
 
-# df.to_csv(os.path.join("data", "sberp.csv"))
+df.to_csv(os.path.join("data", "sberp_20241119_nov.csv"))
 plt.figure(figsize=(16,10), dpi= 80)
 plt.plot('TRADEDATE', 'CLOSE', data=df, color='tab:red')
 plt.show()
